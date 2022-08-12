@@ -16,8 +16,8 @@ public class Attribution {
   // 2.1 : Nom membre 2
   // 3.0 : Score
 
-  // static String[] equipe1;
-  // static String[] equipe2;
+  static int pointsEquipe1 = 0;
+  static int pointsEquipe2 = 0;
 
   public static void main(String[] args) {
     Scanner nbr_participants = new Scanner(System.in);
@@ -36,6 +36,19 @@ public class Attribution {
     afficherNomParticipants();
 
     creationEquipe();
+
+    afficherClassement(1);
+    afficherClassement(2);
+
+    addPoint(1);
+
+    afficherClassement(1);
+    afficherClassement(2);
+    addPoint(2);
+
+    afficherClassement(1);
+    afficherClassement(2);
+    addPoint(1);
 
     afficherClassement(1);
     afficherClassement(2);
@@ -133,5 +146,17 @@ public class Attribution {
     }
   }
 
-  static void addPoint() {}
+  static void addPoint(int equipe) {
+    if (equipe == 1) {
+      pointsEquipe1++;
+      String pointsEquipe1str = String.valueOf(pointsEquipe1);
+      classement[3][equipe] = pointsEquipe1str;
+    } else if (equipe == 2) {
+      pointsEquipe2++;
+      String pointsEquipe2str = String.valueOf(pointsEquipe2);
+      classement[3][equipe] = pointsEquipe2str;
+    } else {
+      System.out.println("Erreur de syntaxe.");
+    }
+  }
 }
